@@ -12,8 +12,8 @@ m = 3  # mass of the object, kg
 
 t0 = 0  # starting point of time
 t_final = 180  # final point of time
-h = 1  # step size
-num = (t_final - t0) / h  # number of samples in the given time frame
+h = 0.5  # step size
+num = int(round((t_final - t0) / h,1))  # number of samples in the given time frame
 time = np.linspace(t0, t_final, num)
 input = Fmax * np.sin(time)  # function of the applied sin force
 input2 = Fmax  # constant force
@@ -28,6 +28,7 @@ def runge_kutta(func, y0, y0_prime, h):
     solution = {}
     t, y, y_prime = t0, y0, y0_prime
     n = 0
+    x = getInputForce(0)
     while t < t_final - h:
         solution[t] = y
         k1 = 1 / 2 * h ** 2 * func(getInputForce(n), y, y_prime)

@@ -1,4 +1,6 @@
 *.pptx
+*.pdf
 ODE\ Solver.py
 screenshots/
 material/
+Robotics/
